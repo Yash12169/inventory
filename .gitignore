@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# portable Node.js runtime (downloaded by setup scripts)
+.node-runtime/
+
+# user uploads (keep directory via .gitkeep)
+/public/uploads/*
+!/public/uploads/.gitkeep
+

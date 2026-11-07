@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📦 Personal Inventory Management System
 
-## Getting Started
+A sleek, self-contained local inventory management system built with Next.js App Router, TypeScript, and modern CSS.
 
-First, run the development server:
+Runs **100% locally** — no external database, no cloud services, and zero subscription requirements.
+
+---
+
+## ✨ Features
+
+- **Inventory Dashboard**: View all items in a responsive grid with image preview, title, description, and date added.
+- **Add / Edit / Delete Items**: Full CRUD capabilities with real-time UI updates and confirmation modals.
+- **Local Image Uploads**: Drag-and-drop or file picker; images are stored locally under `public/uploads/`.
+- **File-Based Storage**: All metadata is stored locally in `data/inventory.json`.
+- **Zero-Dependency One-Click Setup**: Auto-downloads a portable Node.js runtime if Node is not installed on the machine.
+
+---
+
+## 🚀 Quick Start
+
+### Option 1: One-Click Setup (Zero Prerequisites)
+
+Even if Node.js or Next.js is **not installed** on your computer, the setup script will fetch a portable runtime and launch the app:
+
+- **macOS / Linux**:
+  ```bash
+  bash setup.sh
+  ```
+- **Windows (PowerShell)**:
+  Right-click `setup.ps1` → **Run with PowerShell**, or in terminal:
+  ```powershell
+  .\setup.ps1
+  ```
+
+### Option 2: Standard Start (If Node.js v18+ is installed)
 
 ```bash
+./start.sh
+```
+or manually:
+```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Project Structure
 
-## Learn More
+```
+inventory-system/
+├── setup.sh             # Universal one-click setup (macOS / Linux)
+├── setup.ps1            # Universal one-click setup (Windows)
+├── start.sh             # Quick startup script
+├── data/
+│   └── inventory.json   # Local JSON storage for inventory items
+├── public/
+│   └── uploads/         # Uploaded item images
+└── src/
+    ├── app/             # Next.js App Router pages & API routes
+    │   ├── api/items/   # REST endpoints for inventory CRUD
+    │   ├── api/upload/  # Multipart image upload handler
+    │   ├── add/         # Add item page
+    │   └── edit/[id]/   # Edit item page
+    ├── components/      # UI components (Navbar, ItemCard, ItemForm, Modals)
+    └── types/           # TypeScript interfaces
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔒 Privacy & Local Storage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Images stay on your local disk (`public/uploads/`).
+- Item records are saved to `data/inventory.json`.
+- No telemetry, no external database, and no internet required after setup.
